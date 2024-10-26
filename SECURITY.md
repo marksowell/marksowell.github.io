@@ -5,7 +5,7 @@
 If you discover a vulnerability in this project, please help us address it responsibly by following these guidelines:
 
 1. **Report Privately**: Do not create GitHub issues for security vulnerabilities. Instead, please [Send an Email](mailto:mark@marksowell.com).
-   
+
 2. **Provide Details**: Include any relevant information that will help us understand and reproduce the vulnerability. This may include steps to reproduce, system configuration details, affected versions, and any potential impact.
 
 3. **Response Time**: We aim to acknowledge your report within 72 hours and provide an initial response within seven days.
