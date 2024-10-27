@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/marksowell
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://marksowell.com
+  * I am marksowell (https://keybase.io/marksowell) on keybase.
+  * I have a public key ASBPN7bBIhKtpsghABuMui3xHBUZDQUtARlM1ymHJ3tSZgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120ebaeee841ba48d2de8939bb32cc889bbeca84c8543919bb972516aafaf71e6350a",
+      "host": "keybase.io",
+      "kid": "01204f37b6c12212ada6c821001b8cba2df11c15190d052d01194cd72987277b52660a",
+      "uid": "240a70f8a031f1641825ba695954ee19",
+      "username": "marksowell"
+    },
+    "merkle_root": {
+      "ctime": 1730052373,
+      "hash": "e3d366bf3c8be93a5de185b7dd48fc78b47a5e87f514c05ce863a3a8bc985944f46306a326defb019e88f89a8a69b50086801e47bf20da3d9de3bd20136a4003",
+      "hash_meta": "5f12d8145e92801dbb17c9297dae19bacde3cd90df2cf3663521dffacab32205",
+      "seqno": 26246614
+    },
+    "service": {
+      "entropy": "5HxCqFSvOPtEoOGmPlr/+KXu",
+      "hostname": "marksowell.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.0"
+  },
+  "ctime": 1730052389,
+  "expire_in": 504576000,
+  "prev": "e7671ec15b2cad8208370043fac2abdd5ecafac10e9947f2112ea0bfe7ddb09f",
+  "seqno": 46,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgTze2wSISrabIIQAbjLot8RwVGQ0FLQEZTNcphyd7UmYKp3BheWxvYWTESpcCLsQg52cewVssrYIINwBD+sKr3V7K+sEOmUfyES6gv+fdsJ/EIDZAH+ZL3HaCB27CybGqsfIoP+5To98rgf5mKbOy/p5kAgHCo3NpZ8RAVZIjy7o5nN+W4ag2PlNJg/85Fs4OXD9p4WOX2MAyK5jZOaJ+21MZZFwy7utf8B425fg148/lXZOPgqV/86BJDKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEII3irXt6DNkfBLaPFs24YibaZoU4+gdNYTqjkpBYAqFio3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/marksowell
+
+==================================================================
