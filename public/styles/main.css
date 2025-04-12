@@ -150,16 +150,13 @@ a img {
 	display: block;
 	line-height: 1;
 	color: #fff;
+	margin-top: 10px
 }
 
 @media only screen and (min-width:768px) {
 	.header .site-description {
 		font-size: 32px
 	}
-}
-
-.site-description {
-	margin-bottom: 1.34em;
 }
 
 .header-icons {
