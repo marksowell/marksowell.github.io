@@ -2,6 +2,20 @@
 
 Welcome to the source code for my personal website, built with [Astro](https://astro.build/) and deployed using GitHub Actions. The site serves as a central point for connecting with me professionally and showcases my certifications, profiles, and social links.
 
+## Development
+
+- Package manager: `pnpm`
+- Linting and formatting: `Biome`
+- Astro validation: `astro check`
+
+Common commands:
+
+- `pnpm install`
+- `pnpm lint`
+- `pnpm lint:fix`
+- `pnpm format`
+- `pnpm run build`
+
 ## Links Included
 
 - **Email**: [Send an Email](mailto:mark@marksowell.com)

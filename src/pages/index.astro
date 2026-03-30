@@ -1,5 +1,41 @@
 ---
+const siteUrl = "https://marksowell.com";
+const canonicalUrl = new URL("/", siteUrl).toString();
+const pageTitle = "Mark Sowell | Lead Penetration Tester and Cybersecurity Expert";
+const pageDescription =
+	"Official website of Mark Sowell, Lead Penetration Tester at Check Point Software. Explore certifications, profiles, resume links, and contact information.";
+const previewImage = new URL("/images/preview-image.png", siteUrl).toString();
+const sameAs = [
+	"https://www.linkedin.com/in/marksowell/",
+	"https://x.com/marksowell/",
+	"https://www.credly.com/users/marksowell",
+	"https://tryhackme.com/p/marksowell",
+	"https://github.com/marksowell",
+];
 
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Mark Sowell",
+	url: canonicalUrl,
+	image: new URL("/images/marksowell-cp-circle-border-inside.png", siteUrl).toString(),
+	jobTitle: "Lead Penetration Tester",
+	worksFor: {
+		"@type": "Organization",
+		name: "Check Point Software",
+	},
+	email: "mailto:mark@marksowell.com",
+	description: pageDescription,
+	sameAs,
+};
+
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Mark Sowell",
+	url: canonicalUrl,
+	description: pageDescription,
+};
 ---
 
 <html lang="en">
@@ -22,19 +58,19 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			Mark Sowell - Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, &amp; Cybersecurity Expert
-		</title>
-		<meta
-			name="description"
-			content="Mark Sowell is a Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, & Cybersecurity Expert. Other certifications include CCPE-I, CCPE-W, CPSA, CCTE, CCTA, CCPA, CCES, CCAS, CCSBMSE, CCSBA, CCSBA-AGENT, CCSM, CCVSA, CCSA, CCSE, CCNA, CWNA, Security+ and more."
-		/>
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<meta name="robots" content="index,follow" />
+		<meta name="author" content="Mark Sowell" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta name="theme-color" content="#1a222c" />
+		<link rel="canonical" href={canonicalUrl} />
 		<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
 		<link rel="preload" href="/styles/main.css" as="style">
 		<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" as="style">
 		<link rel="stylesheet" href="/styles/main.css" />
-		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" />
 		<link rel="icon" href="/images/favicon.avif" type="image/avif" />
 		<!-- <link rel="icon" href="/images/favicon.png" type="image/png" /> -->
 		<link
@@ -43,16 +79,22 @@
 			href="/images/apple-touch-icon.png"
 		/>
 		<meta name="apple-mobile-web-app-title" content="Mark Sowell" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={previewImage} />
 		<!-- Open Graph Tags -->
-		<meta property="og:title" content="Mark Sowell - Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, & Cybersecurity Expert" />
-		<meta property="og:description" content="Mark Sowell is a Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, & Cybersecurity Expert. Other certifications include CCPE-I, CCPE-W, CPSA, CCTE, CCTA, CCPA, CCES, CCAS, CCSBMSE, CCSBA, CCSBA-AGENT, CCSM, CCVSA, CCSA, CCSE, CCNA, CWNA, Security+ and more." />
-		<meta property="og:image" content="https://marksowell.com/images/preview-image.png" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={previewImage} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:url" content="https://marksowell.com" />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Mark Sowell" />
-		<script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" is:inline></script>
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} is:inline />
+		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" is:inline></script>
 		<script src="/js/main.js" is:inline></script>
 	</head>
 	<body>
@@ -91,6 +133,7 @@
 					<a
 						aria-label="My LinkedIn"
 						target="_blank"
+						rel="me noopener noreferrer"
 						href="https://www.linkedin.com/in/marksowell/"
 						title="My LinkedIn"
 						><i
@@ -100,6 +143,7 @@
 					<a
 						aria-label="My X"
 						target="_blank"
+						rel="me noopener noreferrer"
 						href="https://x.com/marksowell/"
 						title="My X"
 						><i
@@ -109,6 +153,7 @@
 					<a
 						aria-label="My Credly"
 						target="_blank"
+						rel="me noopener noreferrer"
 						href="https://www.credly.com/users/marksowell"
 						title="My Credly"
 						><i
@@ -118,6 +163,7 @@
 					<a
 						aria-label="EC-Council"
 						target="_blank"
+						rel="noopener noreferrer"
 						href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=hrh5u5BN7tpBPrNa4iembfeuOXjVqqECsmvVrUh2oeI="
 						title="EC-Council"
 						><i class="icon fa" aria-hidden="true"><b>&#9651</b></i
@@ -126,6 +172,7 @@
 					<a
 						aria-label="TryHackMe"
 						target="_blank"
+						rel="me noopener noreferrer"
 						href="https://tryhackme.com/p/marksowell"
 						title="TryHackMe"
 						><i class="icon fa fa-thm" aria-hidden="true"></i></a
@@ -134,6 +181,7 @@
 					<a
 						aria-label="My GitHub"
 						target="_blank"
+						rel="me noopener noreferrer"
 						href="https://github.com/marksowell"
 						title="My GitHub"
 						><i
@@ -152,8 +200,8 @@
 						src="https://status.marksowell.com/badge?theme=dark"
 						width="250"
 						height="30"
-						frameborder="0"
-						scrolling="no" title="Staus"></iframe>
+						style="border: 0;"
+						title="Status"></iframe>
 				</div>
 			</div>
 		</div>

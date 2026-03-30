@@ -1,10 +1,12 @@
 /* latin */
 @font-face {
-	font-family: 'Montserrat';
+	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 400;
-	src: url(https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src: url(https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2)
+		format("woff2");
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 body {
@@ -13,7 +15,7 @@ body {
 	font-size: 100%;
 	line-height: 1.5;
 	color: #555;
-	font-family: 'Antic Slab', serif
+	font-family: "Antic Slab", serif;
 }
 
 article,
@@ -24,7 +26,7 @@ footer,
 header,
 nav,
 section {
-	display: block
+	display: block;
 }
 
 h1,
@@ -35,39 +37,39 @@ stong {
 	margin-top: 1em;
 	padding-top: 1em;
 	line-height: 1.25;
-	color: #333
+	color: #333;
 }
 
 h1 {
-	font-size: 2.5rem
+	font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 2rem
+	font-size: 2rem;
 }
 
 h3 {
-	font-size: 1.5rem
+	font-size: 1.5rem;
 }
 
 h4 {
-	font-size: 1rem
+	font-size: 1rem;
 }
 
 ol,
 ul {
-	padding-left: 40px
+	padding-left: 40px;
 }
 
 figure,
 ol,
 p,
 ul {
-	margin: 1em 0
+	margin: 1em 0;
 }
 
 a img {
-	border: none
+	border: none;
 }
 
 /* @-webkit-keyframes pulse {
@@ -111,15 +113,15 @@ a img {
 	min-height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-attachment: fixed
+	background-attachment: fixed;
 }
 
 #particles-js .particles-js-canvas-el {
-	height: 100vh!important
+	height: 100vh !important;
 }
 
 .header {
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	z-index: 1;
 	text-align: center;
 	color: #fff;
@@ -128,20 +130,20 @@ a img {
 	left: 50%;
 	margin: 0 auto;
 	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%)
+	transform: translate(-50%, -50%);
 }
 
 .header .site-title {
 	font-size: 50px;
 	display: block;
 	line-height: 1;
-	color: #fff
+	color: #fff;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
 	.header .site-title {
 		margin: 0;
-		font-size: 68px
+		font-size: 68px;
 	}
 }
 
@@ -150,33 +152,33 @@ a img {
 	display: block;
 	line-height: 1;
 	color: #fff;
-	margin-top: 10px
+	margin-top: 10px;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
 	.header .site-description {
-		font-size: 32px
+		font-size: 32px;
 	}
 }
 
 .header-icons {
 	display: flex;
 	justify-content: center;
-	text-align: center
+	text-align: center;
 }
 
 .header-icons a {
-	outline: 0!important;
-	border: none!important;
-	outline-style: none!important;
-	-moz-outline-style: none!important;
+	outline: 0 !important;
+	border: none !important;
+	outline-style: none !important;
+	-moz-outline-style: none !important;
 	pointer-events: auto;
 }
 
 .down,
 .header-icons .icon {
 	color: #fff;
-	text-align: center
+	text-align: center;
 }
 
 .header-icons .icon {
@@ -187,56 +189,56 @@ a img {
 	width: 20px;
 	font-size: 20px;
 	margin: 5px;
-	border: 2px solid #fff
+	border: 2px solid #fff;
 }
 
 .header-icons .icon:active,
 .header-icons .icon:hover {
 	color: #1a222c;
-	background: #fff
+	background: #fff;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
 	.header-icons .icon {
 		width: 35px;
 		height: 35px;
 		font-size: 30px;
-		align-content: center
+		align-content: center;
 	}
 }
 
 .fa-mycredly:before {
 	display: flex;
 	height: 100%;
-    width: 100%;
+	width: 100%;
 	content: "";
 	background: url("/images/credly.png") no-repeat 0 0;
-	background-size:  cover;
+	background-size: cover;
 }
 
 .fa-mycredly:hover:before {
 	display: flex;
 	height: 100%;
-    width: 100%;
+	width: 100%;
 	content: "";
-    background: url("/images/credly_d.png") no-repeat 0 0;
-	background-size:  cover;
+	background: url("/images/credly_d.png") no-repeat 0 0;
+	background-size: cover;
 }
 
 .fa-thm:before {
 	display: flex;
 	height: 100%;
-    width: 100%;
+	width: 100%;
 	content: "";
 	background: url("/images/tryhackme.png") no-repeat 0 0;
-	background-size:  cover;
+	background-size: cover;
 }
 
 .fa-thm:hover:before {
 	display: flex;
 	height: 100%;
-    width: 100%;
+	width: 100%;
 	content: "";
-    background: url("/images/tryhackme_d.png") no-repeat 0 0;
-	background-size:  cover;
+	background: url("/images/tryhackme_d.png") no-repeat 0 0;
+	background-size: cover;
 }

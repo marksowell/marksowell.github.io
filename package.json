@@ -1,17 +1,25 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.8",
-    "astro": "^6.1.1",
-    "typescript": "^5.9.3"
-  }
+	"name": "",
+	"type": "module",
+	"version": "0.0.1",
+	"packageManager": "pnpm@10.33.0",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"format:check": "biome format --check .",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.8",
+		"astro": "^6.1.1",
+		"typescript": "^5.9.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4"
+	}
 }
