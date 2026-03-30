@@ -187,6 +187,9 @@ a img {
 }
 
 .header-icons .icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	height: 20px;
 	padding: 10px;
 	border-radius: 50%;
@@ -197,8 +200,8 @@ a img {
 	border: 2px solid #fff;
 }
 
-.header-icons .icon:active,
-.header-icons .icon:hover {
+.header-icons a:active .icon,
+.header-icons a:hover .icon {
 	color: #1a222c;
 	background: #fff;
 }
@@ -210,6 +213,27 @@ a img {
 		font-size: 30px;
 		align-content: center;
 	}
+}
+
+.icon-svg-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon-svg {
+	display: block;
+	width: 85%;
+	height: 85%;
+}
+
+.header-icons .icon.icon-aspen {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	line-height: 1;
+	font-size: 30px;
 }
 
 .fa-mycredly:before {
