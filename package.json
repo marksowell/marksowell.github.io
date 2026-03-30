@@ -4,8 +4,8 @@
 	"version": "0.0.1",
 	"packageManager": "pnpm@10.33.0",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
+		"dev": "astro dev --host",
+		"start": "astro dev --host",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
