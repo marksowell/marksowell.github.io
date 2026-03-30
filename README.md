@@ -1,6 +1,6 @@
-# Personal Website - Mark Sowell
+# Mark Sowell Personal Website
 
-Welcome to the source code for my personal website, built with [Astro](https://astro.build/) and deployed using GitHub Actions. The site serves as a central point for connecting with me professionally and showcases my certifications, profiles, and social links.
+This repository contains the source code for my personal website, built with [Astro](https://astro.build/) and deployed with GitHub Actions. It serves as a central hub for my professional profiles, certifications, resume links, and contact information.
 
 ## Development
 
