@@ -29,5 +29,3 @@ Common commands:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
-The design and theme were originally based on the work found [here](https://github.com/murraco/jekyll-theme-minimal-resume) and [here](https://github.com/chrispetrou/chrispetrou.github.io), which has since been adapted for use with Astro and GitHub Actions.
