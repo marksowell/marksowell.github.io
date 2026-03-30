@@ -18,7 +18,7 @@
 		"@astrojs/check": "^0.9.8",
 		"@fortawesome/fontawesome-svg-core": "6.6.0",
 		"@fortawesome/free-brands-svg-icons": "6.6.0",
-		"@fortawesome/free-solid-svg-icons": "6.6.0",
+		"@fortawesome/free-solid-svg-icons": "7.2.0",
 		"astro": "^6.1.1",
 		"typescript": "^5.9.3"
 	},
