@@ -5,4 +5,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	site: "https://marksowell.com", // Set to your subdomain
 	base: "/", // Base URL is root for this subdomain
+	devToolbar: {
+		enabled: false,
+	},
 });
