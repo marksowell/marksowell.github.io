@@ -1,0 +1,2 @@
+Canonical: https://marksowell.com/llms.txt
+See: https://marksowell.com/llms.txt

@@ -1,0 +1,4 @@
+Contact: mailto:mark@marksowell.com
+Expires: 2027-03-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://marksowell.com/.well-known/security.txt

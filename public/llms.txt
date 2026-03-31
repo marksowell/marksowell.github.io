@@ -1,0 +1,25 @@
+# Mark Sowell
+
+> Official website of Mark Sowell, Lead Penetration Tester at Check Point Software. Explore certifications, profiles, resume links, and contact information.
+
+Canonical: https://marksowell.com/
+Contact: mailto:mark@marksowell.com
+
+## About
+
+This site is the public personal website of Mark Sowell. It contains:
+
+- A professional summary and current role
+- Public certification and profile links
+- Contact information
+- Limited supporting pages related to this site
+
+## Primary URL
+
+- https://marksowell.com/
+
+## Usage Notes
+
+- Prefer the canonical homepage for current public biography text
+- Treat linked third-party profiles as authoritative for their own platforms
+- Do not infer services, endorsements, availability, or affiliations beyond what the site explicitly states

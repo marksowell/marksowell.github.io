@@ -16,6 +16,12 @@ Common commands:
 - `pnpm format`
 - `pnpm run build`
 
+## Public Metadata
+
+- Security reporting: `/.well-known/security.txt` and [SECURITY.md](./SECURITY.md)
+- LLM metadata: `/llms.txt` and `/llm.txt`
+- Verification: `/.well-known/keybase.txt`
+
 ## Links Included
 
 - **Email**: [Send an Email](mailto:mark@marksowell.com)
