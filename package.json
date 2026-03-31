@@ -19,10 +19,15 @@
 		"@fortawesome/fontawesome-svg-core": "7.2.0",
 		"@fortawesome/free-brands-svg-icons": "7.2.0",
 		"@fortawesome/free-solid-svg-icons": "7.2.0",
-		"astro": "^6.1.1",
-		"typescript": "^5.9.3"
+		"astro": "^6.1.2",
+		"typescript": "^6.0.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.9"
+		"@biomejs/biome": "^2.4.10"
+	},
+	"pnpm": {
+		"overrides": {
+			"yaml": "2.8.3"
+		}
 	}
 }
