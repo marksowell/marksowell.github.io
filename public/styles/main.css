@@ -38,7 +38,7 @@ h1,
 h2,
 h3,
 h4,
-stong {
+strong {
 	margin-top: 1em;
 	padding-top: 1em;
 	line-height: 1.25;
@@ -118,7 +118,8 @@ a img {
 	justify-content: center;
 	min-height: 100svh;
 	overflow: hidden;
-	background: radial-gradient(circle at 20% 15%, rgba(41, 212, 101, 0.08), transparent 26%),
+	background:
+		radial-gradient(circle at 20% 15%, rgba(41, 212, 101, 0.08), transparent 26%),
 		radial-gradient(circle at 82% 24%, rgba(41, 212, 101, 0.05), transparent 28%),
 		linear-gradient(180deg, #1d2733 0%, #1a222c 42%, #151d26 100%);
 }
@@ -151,7 +152,10 @@ a img {
 .hero-grid__node {
 	fill: #29d465;
 	opacity: 1;
-	transition: opacity 180ms ease, fill 180ms ease, r 180ms ease;
+	transition:
+		opacity 180ms ease,
+		fill 180ms ease,
+		r 180ms ease;
 }
 
 .hero-grid__node--ambient {
@@ -177,12 +181,14 @@ a img {
 .hero-grid__veil {
 	position: absolute;
 	inset: 0;
-	background: radial-gradient(
+	background:
+		radial-gradient(
 			circle at center,
 			rgba(26, 34, 44, 0.06) 0%,
 			rgba(26, 34, 44, 0.28) 48%,
 			rgba(26, 34, 44, 0.72) 100%
-		), radial-gradient(circle at 50% 38%, rgba(41, 212, 101, 0.08), transparent 34%);
+		),
+		radial-gradient(circle at 50% 38%, rgba(41, 212, 101, 0.08), transparent 34%);
 	pointer-events: none;
 }
 
@@ -273,10 +279,10 @@ a img {
 }
 
 .header-icons a {
-	outline: 0 !important;
-	border: none !important;
-	outline-style: none !important;
-	-moz-outline-style: none !important;
+	outline: 0;
+	border: none;
+	outline-style: none;
+	-moz-outline-style: none;
 	pointer-events: auto;
 }
 
@@ -293,7 +299,7 @@ a img {
 	height: 20px;
 	padding: 10px;
 	border-radius: 50%;
-	transition: all .5s;
+	transition: all 0.5s;
 	width: 20px;
 	font-size: 20px;
 	margin: 5px;
