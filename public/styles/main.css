@@ -217,6 +217,11 @@ a img {
 	margin: 0 auto;
 }
 
+.hero-photo-block {
+	display: block;
+	margin-bottom: 18px;
+}
+
 .header .site-title {
 	font-size: 50px;
 	display: block;
@@ -232,16 +237,16 @@ a img {
 }
 
 .header .site-description {
-	font-size: 20px;
+	font-size: 18px;
 	display: block;
-	line-height: 1;
+	line-height: 1.08;
 	color: #fff;
 	margin-top: 10px;
 }
 
 @media only screen and (min-width: 768px) {
 	.header .site-description {
-		font-size: 32px;
+		font-size: 28px;
 	}
 }
 
