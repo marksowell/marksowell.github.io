@@ -65,6 +65,14 @@ const initHeroGrid = () => {
 		landscapeUiTimer = window.setTimeout(syncMobileLandscapeUi, 220);
 	};
 
+	const preventTouchScroll = (event) => {
+		event.preventDefault();
+	};
+
+	const preventGestureZoom = (event) => {
+		event.preventDefault();
+	};
+
 	const createSvgNode = () => {
 		const wrapper = document.createElementNS(ns, "g");
 		const core = document.createElementNS(ns, "circle");
@@ -358,6 +366,13 @@ const initHeroGrid = () => {
 	queueMobileLandscapeUiSync();
 	rafId = window.requestAnimationFrame(tick);
 
+	if (window.matchMedia("(pointer: coarse)").matches) {
+		document.addEventListener("touchmove", preventTouchScroll, { passive: false });
+		document.addEventListener("gesturestart", preventGestureZoom, { passive: false });
+		document.addEventListener("gesturechange", preventGestureZoom, { passive: false });
+		document.addEventListener("gestureend", preventGestureZoom, { passive: false });
+	}
+
 	window.addEventListener("resize", queueMobileLandscapeUiSync, { passive: true });
 
 	if (window.visualViewport) {
@@ -372,6 +387,10 @@ const initHeroGrid = () => {
 			window.cancelAnimationFrame(rafId);
 			window.clearInterval(ambientTimer);
 			window.clearTimeout(landscapeUiTimer);
+			document.removeEventListener("touchmove", preventTouchScroll);
+			document.removeEventListener("gesturestart", preventGestureZoom);
+			document.removeEventListener("gesturechange", preventGestureZoom);
+			document.removeEventListener("gestureend", preventGestureZoom);
 		},
 		{ once: true },
 	);
