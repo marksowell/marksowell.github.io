@@ -334,19 +334,25 @@ a img {
 	height: 85%;
 }
 
-.header-icons .icon.icon-aspen {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: 700;
-	line-height: 1;
-	font-size: 30px;
+.icon-svg-wrap-linkedin .icon-svg {
+	width: 80%;
+	height: 80%;
+}
+
+.icon-svg-wrap-x .icon-svg {
+	width: 78%;
+	height: 78%;
+}
+
+.icon-svg-aspen {
+	transform: translateY(-1.5px);
 }
 
 .fa-mycredly:before {
 	display: flex;
-	height: 100%;
-	width: 100%;
+	height: 82%;
+	width: 82%;
+	margin: auto;
 	content: "";
 	background: url("/images/credly.png") no-repeat 0 0;
 	background-size: cover;
@@ -354,8 +360,9 @@ a img {
 
 .fa-mycredly:hover:before {
 	display: flex;
-	height: 100%;
-	width: 100%;
+	height: 82%;
+	width: 82%;
+	margin: auto;
 	content: "";
 	background: url("/images/credly_d.png") no-repeat 0 0;
 	background-size: cover;
@@ -363,8 +370,9 @@ a img {
 
 .fa-thm:before {
 	display: flex;
-	height: 100%;
-	width: 100%;
+	height: 84%;
+	width: 84%;
+	margin: auto;
 	content: "";
 	background: url("/images/tryhackme.png") no-repeat 0 0;
 	background-size: cover;
@@ -372,8 +380,9 @@ a img {
 
 .fa-thm:hover:before {
 	display: flex;
-	height: 100%;
-	width: 100%;
+	height: 84%;
+	width: 84%;
+	margin: auto;
 	content: "";
 	background: url("/images/tryhackme_d.png") no-repeat 0 0;
 	background-size: cover;

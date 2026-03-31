@@ -45,6 +45,8 @@ const emailIcon = icon(faEnvelope, { classes: ["icon-svg"] }).html.join("");
 const linkedinIcon = icon(faLinkedin, { classes: ["icon-svg"] }).html.join("");
 const xIcon = icon(faXTwitter, { classes: ["icon-svg"] }).html.join("");
 const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
+const aspenIcon =
+	'<svg aria-hidden="true" class="icon-svg icon-svg-aspen" viewBox="-1.4 -1.4 31.253 27.441"><path d="m0 24.641h28.453l-14.227-24.641z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>';
 ---
 
 <html lang="en">
@@ -178,7 +180,7 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 						rel="me noopener noreferrer"
 						href="https://www.linkedin.com/in/marksowell/"
 						title="My LinkedIn"
-						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={linkedinIcon}></span></a
+						><span class="icon icon-svg-wrap icon-svg-wrap-linkedin" aria-hidden="true" set:html={linkedinIcon}></span></a
 					>
 					<a
 						aria-label="My X"
@@ -186,7 +188,7 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 						rel="me noopener noreferrer"
 						href="https://x.com/marksowell/"
 						title="My X"
-						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={xIcon}></span></a
+						><span class="icon icon-svg-wrap icon-svg-wrap-x" aria-hidden="true" set:html={xIcon}></span></a
 					>
 					<a
 						aria-label="My Credly"
@@ -204,7 +206,7 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 						rel="noopener noreferrer"
 						href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=hrh5u5BN7tpBPrNa4iembfeuOXjVqqECsmvVrUh2oeI="
 						title="EC-Council"
-						><span class="icon icon-aspen" aria-hidden="true">&#9651;</span></a
+						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={aspenIcon}></span></a
 					>
 					<a
 						aria-label="TryHackMe"
