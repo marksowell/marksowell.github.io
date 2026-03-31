@@ -49,19 +49,26 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-3XQVKRQLEQ"
-			is:inline></script>
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
+			window.gtag = function gtag() {
+				window.dataLayer.push(arguments);
+			};
 
-			gtag("config", "G-3XQVKRQLEQ");
+			const loadAnalytics = () => {
+				if (window.__gaLoaded) return;
+				window.__gaLoaded = true;
+
+				const script = document.createElement("script");
+				script.async = true;
+				script.src = "https://www.googletagmanager.com/gtag/js?id=G-3XQVKRQLEQ";
+				document.head.append(script);
+
+				window.gtag("js", new Date());
+				window.gtag("config", "G-3XQVKRQLEQ");
+			};
+
+			window.addEventListener("load", loadAnalytics, { once: true });
 		</script>
 
 		<meta charset="utf-8" />
@@ -102,7 +109,7 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 		<meta property="og:site_name" content="Mark Sowell" />
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
 		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} is:inline />
-		<script src="/js/main.js" is:inline></script>
+		<script src="/js/main.js" defer is:inline></script>
 	</head>
 	<body>
 		<div
@@ -131,13 +138,24 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 				style="min-width:80%; height:100svh; pointer-events: none;"
 			>
 				<h1>
-					<span style="margin-bottom: 10px;"
-						>
-						<picture>
-							<source srcset="/images/marksowell-cp-circle-border-inside.avif" type="image/avif">
-							<img src="/images/marksowell-cp-circle-border-inside.png" alt="Mark Sowell" style="height: 250px; width: auto;">
-						</picture>
-					</span>
+						<span style="margin-bottom: 10px;"
+							>
+							<picture>
+								<source
+									srcset="/images/marksowell-cp-circle-border-inside-512.webp"
+									type="image/webp"
+								/>
+								<img
+									src="/images/marksowell-cp-circle-border-inside-512.png"
+									alt="Mark Sowell"
+									width="512"
+									height="512"
+									fetchpriority="high"
+									decoding="async"
+									style="height: 250px; width: auto;"
+								/>
+							</picture>
+						</span>
 					<span style="margin-bottom:10px;" class="site-title"
 						>Mark Sowell</span
 					>
