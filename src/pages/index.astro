@@ -105,12 +105,12 @@ const aspenIcon =
 		<meta name="author" content="Mark Sowell" />
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 		<meta name="theme-color" content="#1a222c" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="application-name" content="Mark Sowell" />
 		<link rel="canonical" href={canonicalUrl} />
-		<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="/fonts/montserrat-latin-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="/styles/main.css" as="style">
 		<link rel="stylesheet" href="/styles/main.css" />
+		<link rel="manifest" href="/manifest.webmanifest" />
 		<link rel="icon" href="/images/favicon.avif" type="image/avif" />
 		<!-- <link rel="icon" href="/images/favicon.png" type="image/png" /> -->
 		<link
@@ -125,10 +125,12 @@ const aspenIcon =
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={previewImage} />
+		<meta name="twitter:image:alt" content="Portrait of Mark Sowell" />
 		<!-- Open Graph Tags -->
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:image" content={previewImage} />
+		<meta property="og:image:alt" content="Portrait of Mark Sowell" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:url" content={canonicalUrl} />
@@ -156,64 +158,57 @@ const aspenIcon =
 				style="min-width:80%; height:100svh; pointer-events: none;"
 			>
 				<div class="hero-core">
-				<h1>
-						<span class="hero-photo-block"
-							>
-							<picture>
-								<source
-									srcset="/images/marksowell-cp-circle-border-inside-512.webp"
-									type="image/webp"
-								/>
-								<img
-									class="hero-photo"
-									src="/images/marksowell-cp-circle-border-inside-512.png"
-									alt="Mark Sowell"
-									width="512"
-									height="512"
-									fetchpriority="high"
-									decoding="async"
-									style="height: var(--hero-photo-height, 250px); width: auto;"
-								/>
-							</picture>
-						</span>
-					<span style="margin-bottom:10px;" class="site-title"
-						>Mark Sowell</span
-					>
-					<span
-						style="margin:0 auto;max-width:80%;"
-						class="site-description"
-						>Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, & Cybersecurity Expert</span
-					>
-				</h1>
-				<div class="header-icons">
+					<span class="hero-photo-block">
+						<picture>
+							<source
+								srcset="/images/marksowell-cp-circle-border-inside-512.webp"
+								type="image/webp"
+							/>
+							<img
+								class="hero-photo"
+								src="/images/marksowell-cp-circle-border-inside-512.png"
+								alt="Mark Sowell"
+								width="512"
+								height="512"
+								fetchpriority="high"
+								decoding="async"
+								style="height: var(--hero-photo-height, 250px); width: auto;"
+							/>
+						</picture>
+					</span>
+					<h1 class="site-title">Mark Sowell</h1>
+					<p class="site-description">
+						Lead Penetration Tester at Check Point Software - OSCP+, CEH Master, CCSM Elite, & Cybersecurity Expert
+					</p>
+					<div class="header-icons">
 					<a
-						aria-label="Send Email"
+						aria-label="Send email"
 						href="mailto:mark@marksowell.com"
-						title="Send Email"
+						title="Send email"
 						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={emailIcon}></span></a
 					>
 					<a
-						aria-label="My LinkedIn"
+						aria-label="LinkedIn profile"
 						target="_blank"
 						rel="me noopener noreferrer"
 						href="https://www.linkedin.com/in/marksowell/"
-						title="My LinkedIn"
+						title="LinkedIn profile"
 						><span class="icon icon-svg-wrap icon-svg-wrap-linkedin" aria-hidden="true" set:html={linkedinIcon}></span></a
 					>
 					<a
-						aria-label="My X"
+						aria-label="X profile"
 						target="_blank"
 						rel="me noopener noreferrer"
 						href="https://x.com/marksowell/"
-						title="My X"
+						title="X profile"
 						><span class="icon icon-svg-wrap icon-svg-wrap-x" aria-hidden="true" set:html={xIcon}></span></a
 					>
 					<a
-						aria-label="My Credly"
+						aria-label="Credly profile"
 						target="_blank"
 						rel="me noopener noreferrer"
 						href="https://www.credly.com/users/marksowell"
-						title="My Credly"
+						title="Credly profile"
 						><i
 							class="icon fa fa-mycredly"
 							aria-hidden="true"></i></a
@@ -227,26 +222,26 @@ const aspenIcon =
 						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={aspenIcon}></span></a
 					>
 					<a
-						aria-label="TryHackMe"
+						aria-label="TryHackMe profile"
 						target="_blank"
 						rel="me noopener noreferrer"
 						href="https://tryhackme.com/p/marksowell"
-						title="TryHackMe"
+						title="TryHackMe profile"
 						><i class="icon fa fa-thm" aria-hidden="true"></i></a
 					>
 					<!--<a aria-label="My Stackoverflow" target="_blank" href="https://stackoverflow.com/users/12828897/mark-s?tab=profile"><i class="icon fa fa-stack-overflow" aria-hidden="true"></i></a>-->
 					<a
-						aria-label="My GitHub"
+						aria-label="GitHub profile"
 						target="_blank"
 						rel="me noopener noreferrer"
 						href="https://github.com/marksowell"
-						title="My GitHub"
+						title="GitHub profile"
 						><span class="icon icon-svg-wrap" aria-hidden="true" set:html={githubIcon}></span></a
 					>
 					<!--<a aria-label="HackTheBox profile" target="_blank" href="https://www.hackthebox.eu/profile/319820"><i class="icon fa fa-cube" aria-hidden="true"></i></a>-->
 					<!--<a aria-label="HackerRank profile" target="_blank" href="https://www.hackerrank.com/marksowell"><i class="icon fa fa-code" aria-hidden="true"></i></a>-->
 					<!--<a aria-label="HackerOne profile" target="_blank" href="https://hackerone.com/marksowell"><i class="icon fa fa-bug" aria-hidden="true"></i></a>-->
-				</div>
+					</div>
 				</div>
 				<div
 					class="status-container"

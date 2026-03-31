@@ -4,7 +4,7 @@ const initHeroGrid = () => {
 	const nodesGroup = document.getElementById("hero-grid-nodes");
 	const linksGroup = document.getElementById("hero-grid-links");
 	const root = document.getElementById("hero-grid");
-	const heroPicture = document.querySelector(".header picture");
+	const heroPhotoBlock = document.querySelector(".hero-photo-block");
 	const heroHeading = document.querySelector(".header h1");
 	const statusContainer = document.querySelector(".status-container");
 
@@ -45,8 +45,8 @@ const initHeroGrid = () => {
 		const isMobileLandscape =
 			isCoarsePointer && isPhoneSizedViewport && viewportWidth > viewportHeight;
 
-		if (heroPicture instanceof HTMLElement) {
-			heroPicture.style.display = isMobileLandscape ? "none" : "";
+		if (heroPhotoBlock instanceof HTMLElement) {
+			heroPhotoBlock.style.display = isMobileLandscape ? "none" : "";
 		}
 
 		if (heroHeading instanceof HTMLElement) {
