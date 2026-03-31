@@ -72,6 +72,29 @@ const aspenIcon =
 
 			window.addEventListener("load", loadAnalytics, { once: true });
 		</script>
+		<script is:inline>
+			const loadStatusBadge = () => {
+				const frame = document.getElementById("status-badge-frame");
+				if (!(frame instanceof HTMLIFrameElement) || frame.dataset.loaded === "true") return;
+
+				const src = frame.dataset.src;
+				if (!src) return;
+				frame.dataset.loaded = "true";
+				frame.src = src;
+			};
+
+			window.addEventListener(
+				"load",
+				() => {
+					if ("requestIdleCallback" in window) {
+						window.requestIdleCallback(loadStatusBadge, { timeout: 1500 });
+						return;
+					}
+					window.setTimeout(loadStatusBadge, 350);
+				},
+				{ once: true },
+			);
+		</script>
 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -96,6 +119,8 @@ const aspenIcon =
 			href="/images/apple-touch-icon.png"
 		/>
 		<meta name="apple-mobile-web-app-title" content="Mark Sowell" />
+		<link rel="dns-prefetch" href="//status.marksowell.com" />
+		<link rel="preconnect" href="https://status.marksowell.com" crossorigin="anonymous" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
@@ -113,32 +138,24 @@ const aspenIcon =
 		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} is:inline />
 		<script src="/js/main.js" defer is:inline></script>
 	</head>
-	<body>
-		<div
-			id="hero-grid"
-			class="hero-grid"
-			style="touch-action: manipulation; pointer-events: auto;"
+	<body id="hero-grid" style="touch-action: manipulation;">
+		<svg
+			id="hero-grid-svg"
+			class="hero-grid__svg"
+			aria-hidden="true"
+			preserveAspectRatio="xMidYMid slice"
+			viewBox="0 0 1800 1200"
 		>
-			<div class="hero-grid__veil" aria-hidden="true"></div>
-			<div class="hero-grid__fade hero-grid__fade--left" aria-hidden="true"></div>
-			<div class="hero-grid__fade hero-grid__fade--right" aria-hidden="true"></div>
-			<div class="hero-grid__fade hero-grid__fade--top" aria-hidden="true"></div>
-			<div class="hero-grid__fade hero-grid__fade--bottom" aria-hidden="true"></div>
-				<svg
-					id="hero-grid-svg"
-					class="hero-grid__svg"
-					aria-hidden="true"
-					preserveAspectRatio="xMidYMid slice"
-					viewBox="0 0 1800 1200"
-				>
-					<g id="hero-grid-static-nodes"></g>
-					<g id="hero-grid-links"></g>
-					<g id="hero-grid-nodes"></g>
-				</svg>
+			<g id="hero-grid-static-nodes"></g>
+			<g id="hero-grid-links"></g>
+			<g id="hero-grid-nodes"></g>
+		</svg>
+		<main class="hero-shell">
 			<div
 				class="header"
 				style="min-width:80%; height:100svh; pointer-events: none;"
 			>
+				<div class="hero-core">
 				<h1>
 						<span style="margin-bottom: 10px;"
 							>
@@ -148,13 +165,14 @@ const aspenIcon =
 									type="image/webp"
 								/>
 								<img
+									class="hero-photo"
 									src="/images/marksowell-cp-circle-border-inside-512.png"
 									alt="Mark Sowell"
 									width="512"
 									height="512"
 									fetchpriority="high"
 									decoding="async"
-									style="height: 250px; width: auto;"
+									style="height: var(--hero-photo-height, 250px); width: auto;"
 								/>
 							</picture>
 						</span>
@@ -229,18 +247,26 @@ const aspenIcon =
 					<!--<a aria-label="HackerRank profile" target="_blank" href="https://www.hackerrank.com/marksowell"><i class="icon fa fa-code" aria-hidden="true"></i></a>-->
 					<!--<a aria-label="HackerOne profile" target="_blank" href="https://hackerone.com/marksowell"><i class="icon fa fa-bug" aria-hidden="true"></i></a>-->
 				</div>
+				</div>
 				<div
 					class="status-container"
 					style="width: 100%; padding-left: 30px; justify-content: center; position: absolute; display: flex; bottom: 10px; pointer-events: auto;"
 				>
-					<iframe
-						src="https://status.marksowell.com/badge?theme=dark"
-						width="250"
-						height="30"
-						style="border: 0;"
-						title="Status"></iframe>
+					<div class="status-badge" aria-live="polite">
+						<span class="status-badge__fallback" aria-hidden="true"></span>
+						<iframe
+							id="status-badge-frame"
+							class="status-badge__frame"
+							data-src="https://status.marksowell.com/badge?theme=dark"
+							width="250"
+							height="30"
+							style="border: 0;"
+							loading="lazy"
+							onload="this.parentElement?.classList.add('status-badge--ready')"
+							title="Status"></iframe>
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>
