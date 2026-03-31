@@ -77,7 +77,6 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
 		<link rel="preload" href="/styles/main.css" as="style">
 		<link rel="stylesheet" href="/styles/main.css" />
 		<link rel="icon" href="/images/favicon.avif" type="image/avif" />
@@ -103,14 +102,30 @@ const githubIcon = icon(faGithubAlt, { classes: ["icon-svg"] }).html.join("");
 		<meta property="og:site_name" content="Mark Sowell" />
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
 		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} is:inline />
-		<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" is:inline></script>
 		<script src="/js/main.js" is:inline></script>
 	</head>
 	<body>
 		<div
-			id="particles-js"
-			style="touch-action: none; pointer-events: auto;"
+			id="hero-grid"
+			class="hero-grid"
+			style="touch-action: manipulation; pointer-events: auto;"
 		>
+			<div class="hero-grid__veil" aria-hidden="true"></div>
+			<div class="hero-grid__fade hero-grid__fade--left" aria-hidden="true"></div>
+			<div class="hero-grid__fade hero-grid__fade--right" aria-hidden="true"></div>
+			<div class="hero-grid__fade hero-grid__fade--top" aria-hidden="true"></div>
+			<div class="hero-grid__fade hero-grid__fade--bottom" aria-hidden="true"></div>
+				<svg
+					id="hero-grid-svg"
+					class="hero-grid__svg"
+					aria-hidden="true"
+					preserveAspectRatio="xMidYMid slice"
+					viewBox="0 0 1800 1200"
+				>
+					<g id="hero-grid-static-nodes"></g>
+					<g id="hero-grid-links"></g>
+					<g id="hero-grid-nodes"></g>
+				</svg>
 			<div
 				class="header"
 				style="min-width:80%; height:100svh; pointer-events: none;"

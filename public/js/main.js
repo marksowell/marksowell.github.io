@@ -1,111 +1,314 @@
 document.addEventListener(
 	"DOMContentLoaded",
 	() => {
-		particlesJS("particles-js", {
-			particles: {
-				number: {
-					// value: 160,
-					value: 80,
-					density: {
-						enable: !0,
-						value_area: 500,
+		const svg = document.getElementById("hero-grid-svg");
+		const staticNodesGroup = document.getElementById("hero-grid-static-nodes");
+		const nodesGroup = document.getElementById("hero-grid-nodes");
+		const linksGroup = document.getElementById("hero-grid-links");
+		const root = document.getElementById("hero-grid");
+
+		if (
+			!(svg instanceof SVGSVGElement) ||
+			!(staticNodesGroup instanceof SVGGElement) ||
+			!(nodesGroup instanceof SVGGElement) ||
+			!(linksGroup instanceof SVGGElement) ||
+			!root
+		) {
+			return;
+		}
+
+		const ns = "http://www.w3.org/2000/svg";
+		const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const viewWidth = 1800;
+		const viewHeight = 1200;
+		const nodeCount = window.innerWidth < 640 ? 32 : window.innerWidth < 1024 ? 44 : 60;
+		const staticNodeCount = window.innerWidth < 640 ? 70 : window.innerWidth < 1024 ? 110 : 150;
+		const maxLinksPerNode = 3;
+		const linkDistance = 190;
+		const normalRadius = 3.1;
+		const hotRadius = 4.7;
+		const ambientRadius = 3.8;
+		const baseSpeed = prefersReducedMotion ? 0.08 : 0.75;
+		const frameInterval = prefersReducedMotion ? 1000 / 10 : 1000 / 18;
+		const hotspot = { x: viewWidth / 2, y: viewHeight / 2, active: false, boost: 0 };
+		const nodes = [];
+		let rafId = 0;
+		let lastTime = 0;
+		let ambientTimer = 0;
+		let hotspotClearTimer = 0;
+		let linkFrame = 0;
+
+		const createSvgNode = () => {
+			const wrapper = document.createElementNS(ns, "g");
+			const core = document.createElementNS(ns, "circle");
+
+			wrapper.setAttribute("class", "hero-grid__node");
+			core.setAttribute("class", "hero-grid__node-core");
+			wrapper.append(core);
+			nodesGroup.append(wrapper);
+
+			return { wrapper, core };
+		};
+
+		const createLink = () => {
+			const line = document.createElementNS(ns, "line");
+			line.setAttribute("class", "hero-grid__link");
+			linksGroup.append(line);
+			return line;
+		};
+
+		for (let index = 0; index < staticNodeCount; index += 1) {
+			const dot = document.createElementNS(ns, "circle");
+			const radius = 1 + Math.random() * 1.6;
+			dot.setAttribute("class", "hero-grid__static-node");
+			dot.setAttribute("cx", String(Math.random() * viewWidth));
+			dot.setAttribute("cy", String(Math.random() * viewHeight));
+			dot.setAttribute("r", String(radius));
+			dot.style.opacity = String(0.06 + Math.random() * 0.16);
+			staticNodesGroup.append(dot);
+		}
+
+		for (let index = 0; index < nodeCount; index += 1) {
+			const visual = createSvgNode();
+			nodes.push({
+				...visual,
+				x: Math.random() * viewWidth,
+				y: Math.random() * viewHeight,
+				vx: (Math.random() - 0.5) * baseSpeed,
+				vy: (Math.random() - 0.5) * baseSpeed,
+				baseOpacity: 0.28 + Math.random() * 0.55,
+				ambient: false,
+				hot: false,
+				radius: normalRadius + Math.random() * 0.8,
+			});
+		}
+
+		const linkPool = Array.from({ length: nodeCount * maxLinksPerNode }, createLink);
+
+		const setNodeVisual = (node, radius, opacity, hot, ambient) => {
+			node.wrapper.style.opacity = String(opacity);
+			node.wrapper.style.color = hot ? "rgb(77 228 126)" : ambient ? "rgb(114 245 154)" : "#29d465";
+			node.wrapper.setAttribute(
+				"class",
+				`hero-grid__node${hot ? " hero-grid__node--hot" : ""}${ambient ? " hero-grid__node--ambient" : ""}`,
+			);
+			node.core.setAttribute("cx", String(node.x));
+			node.core.setAttribute("cy", String(node.y));
+			node.core.setAttribute("r", String(radius));
+		};
+
+		const pulseAmbient = () => {
+			for (const node of nodes) {
+				node.ambient = false;
+			}
+
+			const picks = prefersReducedMotion ? 2 : 4;
+			for (let i = 0; i < picks; i += 1) {
+				const node = nodes[Math.floor(Math.random() * nodes.length)];
+				node.ambient = true;
+				window.setTimeout(
+					() => {
+						node.ambient = false;
 					},
+					900 + Math.random() * 700,
+				);
+			}
+		};
+
+		const toViewPoint = (clientX, clientY) => {
+			const rect = svg.getBoundingClientRect();
+			return {
+				x: ((clientX - rect.left) / rect.width) * viewWidth,
+				y: ((clientY - rect.top) / rect.height) * viewHeight,
+			};
+		};
+
+		const setHotspot = (clientX, clientY, boost = 1) => {
+			const point = toViewPoint(clientX, clientY);
+			hotspot.x = point.x;
+			hotspot.y = point.y;
+			hotspot.active = true;
+			hotspot.boost = boost;
+			window.clearTimeout(hotspotClearTimer);
+			hotspotClearTimer = window.setTimeout(
+				() => {
+					hotspot.active = false;
+					hotspot.boost = 0;
 				},
-				color: {
-					value: "#29d465",
-				},
-				shape: {
-					type: "circle",
-					stroke: {
-						width: 0,
-						color: "#000000",
-					},
-					polygon: {
-						nb_sides: 5,
-					},
-				},
-				opacity: {
-					value: 1,
-					random: !0,
-					anim: {
-						enable: !0,
-						speed: 1,
-						opacity_min: 0,
-						sync: !1,
-					},
-				},
-				size: {
-					value: 3,
-					random: !0,
-					anim: {
-						enable: !1,
-						speed: 4,
-						size_min: 0.3,
-						sync: !1,
-					},
-				},
-				line_linked: {
-					enable: 1,
-					distance: 150,
-					color: "#29d465",
-					opacity: 0.25,
-					width: 1,
-				},
-				move: {
-					enable: !0,
-					speed: 1,
-					direction: "none",
-					random: !0,
-					straight: !1,
-					out_mode: "out",
-					bounce: !1,
-					attract: {
-						enable: !1,
-						rotateX: 600,
-						rotateY: 600,
-					},
-				},
-			},
-			interactivity: {
-				detect_on: "canvas",
-				events: {
-					onhover: {
-						enable: false,
-					},
-					onclick: {
-						enable: 1,
-						mode: "repulse",
-					},
-					resize: !0,
-				},
-				modes: {
-					grab: {
-						distance: 400,
-						line_linked: {
-							opacity: 1,
-						},
-					},
-					bubble: {
-						distance: 250,
-						size: 0,
-						duration: 2,
-						opacity: 0,
-						speed: 3,
-					},
-					repulse: {
-						distance: 400,
-						duration: 0.4,
-					},
-					push: {
-						particles_nb: 4,
-					},
-					remove: {
-						particles_nb: 2,
-					},
-				},
-			},
-			retina_detect: !0,
+				boost > 1 ? 320 : 180,
+			);
+		};
+
+		const tick = (time) => {
+			if (document.hidden) {
+				rafId = window.requestAnimationFrame(tick);
+				return;
+			}
+
+			if (lastTime && time - lastTime < frameInterval) {
+				rafId = window.requestAnimationFrame(tick);
+				return;
+			}
+
+			const delta = Math.min((time - lastTime) / 16.6667 || 1, 2);
+			lastTime = time;
+			const influenceRadius = hotspot.boost > 1 ? 260 : 190;
+			let activeLinks = 0;
+			const shouldRefreshLinks = linkFrame % 2 === 0;
+
+			for (const node of nodes) {
+				node.x += node.vx * delta;
+				node.y += node.vy * delta;
+
+				if (node.x < -30 || node.x > viewWidth + 30) {
+					node.vx *= -1;
+				}
+				if (node.y < -30 || node.y > viewHeight + 30) {
+					node.vy *= -1;
+				}
+
+				node.x = Math.max(-20, Math.min(viewWidth + 20, node.x));
+				node.y = Math.max(-20, Math.min(viewHeight + 20, node.y));
+
+				let hot = false;
+				let radius = node.radius;
+				let opacity = node.baseOpacity;
+
+				if (hotspot.active) {
+					const dx = node.x - hotspot.x;
+					const dy = node.y - hotspot.y;
+					const distance = Math.hypot(dx, dy);
+
+					if (distance < influenceRadius) {
+						hot = true;
+						const force = (1 - distance / influenceRadius) * (hotspot.boost > 1 ? 1.9 : 0.75);
+						const push = Math.max(0.12, force) * delta;
+						const angle = Math.atan2(dy || 0.01, dx || 0.01);
+						node.x += Math.cos(angle) * push * 16;
+						node.y += Math.sin(angle) * push * 16;
+						radius = hotspot.boost > 1 ? hotRadius : ambientRadius;
+						opacity = 0.96;
+					}
+				}
+
+				node.hot = hot;
+				if (node.ambient && !hot) {
+					radius = ambientRadius;
+					opacity = Math.max(opacity, 0.8);
+				}
+
+				setNodeVisual(node, radius, opacity, hot, node.ambient && !hot);
+			}
+
+			if (shouldRefreshLinks) {
+				for (const line of linkPool) {
+					line.style.opacity = "0";
+					line.classList.remove("hero-grid__link--hot");
+				}
+
+				for (let i = 0; i < nodes.length; i += 1) {
+					let linksForNode = 0;
+					for (let j = i + 1; j < nodes.length; j += 1) {
+						if (linksForNode >= maxLinksPerNode || activeLinks >= linkPool.length) {
+							break;
+						}
+
+						const a = nodes[i];
+						const b = nodes[j];
+						const distance = Math.hypot(a.x - b.x, a.y - b.y);
+
+						if (distance > linkDistance) {
+							continue;
+						}
+
+						const line = linkPool[activeLinks];
+						const opacity =
+							Math.max(0.08, 1 - distance / linkDistance) * (a.hot || b.hot ? 0.95 : 0.62);
+
+						line.setAttribute("x1", String(a.x));
+						line.setAttribute("y1", String(a.y));
+						line.setAttribute("x2", String(b.x));
+						line.setAttribute("y2", String(b.y));
+						line.style.opacity = String(opacity);
+						if (a.hot || b.hot) {
+							line.classList.add("hero-grid__link--hot");
+						}
+
+						activeLinks += 1;
+						linksForNode += 1;
+					}
+				}
+			}
+
+			linkFrame += 1;
+			rafId = window.requestAnimationFrame(tick);
+		};
+
+		const startAmbient = () => {
+			window.clearInterval(ambientTimer);
+			if (prefersReducedMotion) {
+				return;
+			}
+			pulseAmbient();
+			ambientTimer = window.setInterval(pulseAmbient, 1600);
+		};
+
+		root.addEventListener("pointermove", (event) => {
+			setHotspot(event.clientX, event.clientY, 1);
 		});
+
+		root.addEventListener("pointerdown", (event) => {
+			setHotspot(event.clientX, event.clientY, 2.2);
+		});
+
+		root.addEventListener("pointerleave", () => {
+			hotspot.active = false;
+			hotspot.boost = 0;
+		});
+
+		root.addEventListener(
+			"touchstart",
+			(event) => {
+				const touch = event.touches[0];
+				if (!touch) {
+					return;
+				}
+				setHotspot(touch.clientX, touch.clientY, 2.3);
+			},
+			{ passive: true },
+		);
+
+		root.addEventListener(
+			"touchmove",
+			(event) => {
+				const touch = event.touches[0];
+				if (!touch) {
+					return;
+				}
+				setHotspot(touch.clientX, touch.clientY, 1);
+			},
+			{ passive: true },
+		);
+
+		document.addEventListener("visibilitychange", () => {
+			if (document.hidden) {
+				window.clearInterval(ambientTimer);
+				return;
+			}
+			startAmbient();
+		});
+
+		startAmbient();
+		rafId = window.requestAnimationFrame(tick);
+
+		window.addEventListener(
+			"beforeunload",
+			() => {
+				window.cancelAnimationFrame(rafId);
+				window.clearInterval(ambientTimer);
+			},
+			{ once: true },
+		);
 	},
-	!1,
+	{ once: true },
 );
