@@ -20,7 +20,7 @@
 		"@fortawesome/free-brands-svg-icons": "7.2.0",
 		"@fortawesome/free-solid-svg-icons": "7.2.0",
 		"astro": "^6.1.5",
-		"typescript": "^6.0.2"
+		"typescript": "^6.0.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.11"
