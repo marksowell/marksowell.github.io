@@ -15,7 +15,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.8",
+		"@astrojs/check": "^0.9.9",
 		"@fortawesome/fontawesome-svg-core": "7.2.0",
 		"@fortawesome/free-brands-svg-icons": "7.2.0",
 		"@fortawesome/free-solid-svg-icons": "7.2.0",
